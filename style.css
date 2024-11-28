@@ -122,7 +122,10 @@
  }
 
  @media only screen and (max-width: 600px){
-     .body1,.bodyFront,.button1,.button1:hover,.buttonMain,.container,.container:hover,.image,.overlay,.text{
+     .body1,.bodyFront,.container,.container:hover,.image,.overlay,.text{
       width: 100%;
+     }
+     .button1,.button1:hover,.buttonMain{
+      width: 40%;
      }
  }
