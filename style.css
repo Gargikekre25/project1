@@ -1,42 +1,34 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
 
-  li {
-    float: left;
-  }
 
-li a {
-   display: block;
-   color: white;
-   text-align: center;
-   padding: 14px 16px;
-   text-decoration: none;
-  }
-
-/* Change the link color to #111 (black) on hover */
- li a:hover {
-    background-color: #111;
- }
-
- body{
-    background-color:rgb(202, 135, 222);
+ .body1{
+    background-color: rgb(250, 199, 134);
     backface-visibility: visible;
     background-repeat: no-repeat;
     background-size: cover;
+    
  }
+   
+@keyframes moveBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+
+/* Apply the animation to the body element */
+.bodyFront {
+  background: url('https://c.tenor.com/TwQ151ItR70AAAAC/universe-space.gif');
+  background-size: inherit;
+  animation: moveBackground 10s linear infinite;
+}
 
  .buttonMain{
   float: left;
-  background-color: lightpink;
-  border-color: hotpink;
+  background-color: rgb(14, 13, 13);
+  border-color: rgb(34, 32, 33);
   color: aliceblue;
-  margin:0;
-  padding:0;
+  margin-left:90%;
+  padding:0.2%;
+  width: 8%;
+  
  }
  .buttonMain a{
   color: whitesmoke;
@@ -50,20 +42,13 @@ li a {
   background-color:rgb(241, 41, 71);
  }
 
- img{
-  display: block;
-  margin-left: 80%;
-  margin-right: auto;
-  width: 20%;
-  height:50%;
- }
  
  .button1{
   display:inline;
-  margin-left: 8%;
+  margin-left: 7%;
   margin-right: auto;
   padding: 30px;
-  background-color: rgb(12, 155, 238);
+  background-color: rgb(41, 169, 243);
   font-size: larger;
   font-weight:400;
   font-family: cursive;
@@ -77,24 +62,63 @@ li a {
   text-decoration: none;
  }
 
- .button1 a:hover {
-  background-color:rgb(41, 241, 108);
- }
-
- .table1{
-  border-collapse: collapse;
-  border-color: crimson;
-  background-color: coral;
-  
+ .button1:hover {
+  background-color:rgb(136, 15, 243);
+  padding:50px 50px;
  }
 
  
 
+ .container {
+  position: relative;
+  width: 50%;
+  margin-bottom: 5%;
+
+  
+}
+
+.image {
+  display: inline;
+  width: 60%;
+  height: 60%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 60%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+ 
+ 
+
  footer{
   text-align:center;
-  position: sticky;
+  position:fixed;
   bottom: 0;
   right: 0;
+
  }
 
  @media only screen and (max-width: 600px){
