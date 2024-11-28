@@ -1,0 +1,102 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+  }
+
+/* Change the link color to #111 (black) on hover */
+ li a:hover {
+    background-color: #111;
+ }
+
+ body{
+    background-color:rgb(202, 135, 222);
+    backface-visibility: visible;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+ .buttonMain{
+  float: left;
+  background-color: lightpink;
+  border-color: hotpink;
+  color: aliceblue;
+  margin:0;
+  padding:0;
+ }
+ .buttonMain a{
+  color: whitesmoke;
+  display: block;
+  text-align: center;
+  padding: 18px 18px;
+  text-decoration: none;
+ }
+
+ .buttonMain a:hover {
+  background-color:rgb(241, 41, 71);
+ }
+
+ img{
+  display: block;
+  margin-left: 80%;
+  margin-right: auto;
+  width: 20%;
+  height:50%;
+ }
+ 
+ .button1{
+  display:inline;
+  margin-left: 8%;
+  margin-right: auto;
+  padding: 30px;
+  background-color: rgb(12, 155, 238);
+  font-size: larger;
+  font-weight:400;
+  font-family: cursive;
+ }
+
+ .button1 a{
+  color: whitesmoke;
+  display: block;
+  text-align: center;
+  padding: 100px 100px;
+  text-decoration: none;
+ }
+
+ .button1 a:hover {
+  background-color:rgb(41, 241, 108);
+ }
+
+ .table1{
+  border-collapse: collapse;
+  border-color: crimson;
+  background-color: coral;
+  
+ }
+
+ 
+
+ footer{
+  text-align:center;
+  position: sticky;
+  bottom: 0;
+  right: 0;
+ }
+
+ @media only screen and (max-width: 600px){
+
+ }
