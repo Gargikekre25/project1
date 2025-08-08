@@ -3,27 +3,453 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My Portfolio</title>
+    <style>
+        /* ==== General Reset ==== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ==== Navbar ==== */
+        nav {
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        /* ==== Hero Section ==== */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            text-align: center;
+        }
+
+        .hero img {
+            width: 160px;
+            height: 190px;
+            border-radius: 20%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        /* ==== Sections ==== */
+        section {
+            padding: 3rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: #0f172a;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: #38bdf8;
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* About Section */
+        .about-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-section h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+
+        /* ==== Skills ==== */
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: scale(1.05);
+        }
+
+        /* ==== Projects ==== */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* ==== Contact ==== */
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form button {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .contact-form button {
+            background: #38bdf8;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #0ea5e9;
+        }
+
+        /* ==== Footer ==== */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #0f172a;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        /* ==== Animations ==== */
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .about-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+    </style>
 </head>
-<body class="bodyFront">
-    <header>
-        <center><h1 style="color:aliceblue;font-size: larger;">My Portfolio</h1></center>
-    </header>
-    <section>
-     <div style="padding: 45px;">
-         <button class="button1"><a href="about.html">Who am I?</a></button>
-         <button class="button1"><a href="certificate.html">Certificates</a></button>
-         <button class="button1"><a href="contact.html">Contact</a></button>
-     </div>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <h1>My Portfolio</h1>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <img src="images/img.jpg" alt="Profile Picture">
+        <h2>Gargi Kekre</h2>
+        <p>Aspiring Java developer</p>
     </section>
 
-    <section>
+   <div class="container">
         
+        <!-- About Section -->
+        <div class="about-section">
+            <h1>About Me</h1>
+            <p>
+               My name is Gargi Kekre, and I am currently pursuing a BTech in Computer Science. I aspire to become a backend developer and am eager to explore the IT industry by continuously learning new technologies and growing both as a person and as an engineer. </p>
+
+<p>So far, I have gained proficiency in Java and have worked with frameworks such as Spring Boot and Hibernate. Currently, I am contributing as a backend developer to my major project, SmartEduAssist, which is helping me apply my skills in a real-world context.
+
+Academically, I have a CGPA of 7. I completed my schooling from St. Paul's Convent Sr. Sec. School, where I secured 91% in Class 12 and 89% in Class 10.</p>
+
+<p>I belong to Ujjain, a city known for its spiritual and cultural significance. Growing up in such an environment has helped me develop values like sincerity and reliability, which I consider my strengths and which I carry into my professional conduct.
+</p>
+<p></p>.
+            </p>
+        </div>
+
+        <!-- Gallery Section -->
+        <h2 style="text-align:center; margin-bottom: 20px;">My Highlights</h2>
+        <div class="gallery">
+            <img src="images/saree.jpg" alt="Me">
+            <img src="images/thirdprize.jpg" alt="Rangoli Winning Moment">
+            <img src="images/book.jpg" alt="Favorite Book">
+            <img src="images/surrounding.jpg" alt="Café Time">
+        </div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <img src="" alt="Expanded View">
+        </div>
+    </div>
+
+
+        <!-- Text Section -->
+        <div class="about-text">
+           
+        </div>
+    </div>
+</section>
+
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-list">
+            <div class="skill">Java</div>
+            <div class="skill">Spring Boot</div>
+            <div class="skill">HTML/CSS</div>
+            <div class="skill">JavaScript</div>
+        </div>
     </section>
 
-    <footer>
-        <text style="color: white;">Copyrights@reserved</text>
-    </footer>
+    <!-- Certifications -->
+<section id="certifications">
+    <h2 class="section-title">Certifications</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+        
+        <div style="background:white; padding:1rem; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center;">
+            <h3>Programming in Java</h3>
+            <p>Issued by NPTEL• Oct 2024</p>
+        </div>
+
+        <div style="background:white; padding:1rem; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center;">
+            <h3>Certification in Java basics</h3>
+            <p>Issued by Infosys • Dec 2024</p>
+        </div>
+
+        <div style="background:white; padding:1rem; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center;">
+            <h3>Data Analytics Job Simulation</h3>
+            <p>Issued by Deloitte • April 2025</p>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="images/jobjiffy.jpg" alt="Project 1">
+                <h3>Jobjiffy</h3>
+                <p>Jobify is a freelance service booking platform that connects users with verified service providers such as electricians, plumbers, and carpenters. The goal is to simplify the process of finding and booking skilled professionals for everyday tasks.</p>
+            </div>
+            <div class="project">
+                <img src="images/mediplus.png" alt="Project 2">
+                <h3>MediPlus</h3>
+                <p>MediPlus is a queuing models for OPDs which shows availability of beds and help for admission of patients. It's a hospital based solution which can be integrated with city wide module</p>
+            </div>
+
+            <div class="project">
+                <img src="images/Snakegame.png" alt="Project 2">
+                <h3>The Snake Game</h3>
+                <p>Its our old familiar childhood snake and food game. Quickly gripping and requiring quiet focus to let our snake grow by eating the food while remaining protected from hitting the walls.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+<section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div style="text-align:center; font-size:1.2rem; background:white; padding:2rem; border-radius:10px; max-width:500px; margin:auto; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <p><strong>📞 Phone:</strong> +91 9302380635</p>
+        <p><strong>📧 Email:</strong> gargikekre25@gmail.com</p>
+        <p><strong> Linkdin:</strong>https://www.linkdin.com/in/gargi-kekre-11712b26b/ </p>
+        <p><strong> GitHub:</strong> https://github.com/Gargikekre25</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 GargiKekre. All rights reserved.</p>
+</footer>
+
+
 </body>
+
+<script>
+        const galleryImages = document.querySelectorAll('.gallery img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+    </script>
 </html>
